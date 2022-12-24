@@ -115,7 +115,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(376, 373);
+            this.ClientSize = new System.Drawing.Size(353, 373);
             this.Controls.Add(this.adminCheck);
             this.Controls.Add(this.linkLabelNoAcc);
             this.Controls.Add(this.label2);

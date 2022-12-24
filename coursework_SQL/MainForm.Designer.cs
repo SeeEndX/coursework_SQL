@@ -65,7 +65,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(563, 213);
+            this.dataGridView1.Size = new System.Drawing.Size(563, 259);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
@@ -76,7 +76,7 @@
             this.label1.ForeColor = System.Drawing.Color.Orange;
             this.label1.Location = new System.Drawing.Point(16, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(238, 39);
+            this.label1.Size = new System.Drawing.Size(232, 38);
             this.label1.TabIndex = 1;
             this.label1.Text = "Ваши заказы";
             // 
@@ -85,12 +85,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(598, 284);
+            this.ClientSize = new System.Drawing.Size(598, 330);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(616, 1000);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(616, 377);
             this.Name = "MainForm";
             this.Text = "Заказы";
             this.Load += new System.EventHandler(this.Form2_Load);

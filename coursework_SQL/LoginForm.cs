@@ -15,6 +15,7 @@ namespace coursework_SQL
 {
     public partial class AuthPage : Form
     {
+        public static bool admin = false;
 
         DataBase dataBase = new DataBase();
         public static int id;
@@ -38,7 +39,6 @@ namespace coursework_SQL
             string queryString;
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
-            bool admin = false;
 
             string queryString1 = $"SELECT id_клиента FROM Данные_клиента WHERE login = '{loginUser}' and password = '{loginPassword}'";
             SqlCommand sqlCommand1 = new SqlCommand(queryString1, dataBase.getConnection());
@@ -91,6 +91,10 @@ namespace coursework_SQL
                     formMain.ShowDialog();
                     this.Show();
                 }
+            }
+            else if (admin)
+            {
+                MessageBox.Show("Вход не был выполнен!\nДанные администратора неверны", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

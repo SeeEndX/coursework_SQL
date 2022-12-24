@@ -9,23 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Data.Common;
-using System.Security.Cryptography;
 
 namespace coursework_SQL
 {
-    enum RowState
-    {
-        Existed,
-        New,
-        Modified,
-        ModifiedNew,
-        Deleted
-    }
     public partial class MainForm : Form
     {
         DataBase dataBase = new DataBase();
-        DataGridView dataGridView = new DataGridView();
+        public static DataGridView dataGridView = new DataGridView();
         int id = AuthPage.id;
         bool isCreated = false;
         public MainForm()
@@ -89,9 +79,16 @@ namespace coursework_SQL
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            string queryString = $"SELECT Заказы.id_заказа, Чек.сумма, Чек.id_товара, Заказы.дата_время FROM Заказы Join Чек ON Заказы.id_заказа=Чек.id_заказа where id_клиента= {id};";
-            CreateColumns(0);
-            RefreshDataGrid(dataGridView1, queryString,0);
+            if (!AuthPage.admin)
+            {
+                string queryString = $"SELECT Заказы.id_заказа, Чек.сумма, Чек.id_товара, Заказы.дата_время FROM Заказы Join Чек ON Заказы.id_заказа=Чек.id_заказа where id_клиента= {id};";
+                CreateColumns(0);
+                RefreshDataGrid(dataGridView1, queryString, 0);
+            }
+            else
+            {
+                dataGridView1.Hide();
+            }
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
