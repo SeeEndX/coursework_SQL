@@ -55,14 +55,15 @@ namespace coursework_SQL
             dataReader.Close();
         }
 
-        private Label createLabel(int count)
+        private Label createLabel(string str, int count, int X, int Y, int width, int height)
         {
             Label label = new Label();
-            label.Text = "Всего: " + count;
-            label.Location = new Point(390, 9);
+            if (count == -1) label.Text = str;
+            else label.Text = str + count;
+            label.Location = new Point(X, Y);
             label.ForeColor = Color.Orange;
             label.AutoSize = false;
-            label.Size = new Size(200,50);
+            label.Size = new Size(width, height);
             label.Font = new Font("Microsoft Sans Serif", 19, FontStyle.Bold);
             return label;
         }
@@ -93,10 +94,20 @@ namespace coursework_SQL
             if (!isCreated) CreateColumns();
             RefreshDataGrid(dgr, queryString);
             count = dgr.RowCount-1;
-            formM.Controls.Add(createLabel(count));
+            formM.Controls.Add(createLabel("Всего: ",count,390, 9, 200, 50));
             formM.Controls.Add(dgr);
             this.Hide();
             formM.ShowDialog();
+            this.Show();
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            int count = 0;
+            ProductForm formP = new ProductForm();
+            formP.Controls.Add(createLabel("Добавление товара", -1, 16, 9, 400, 50));
+            this.Hide();
+            formP.ShowDialog();
             this.Show();
         }
     }

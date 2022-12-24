@@ -113,6 +113,7 @@
             this.addBtn.TabIndex = 7;
             this.addBtn.Text = "Создать";
             this.addBtn.UseVisualStyleBackColor = false;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // label2
             // 
