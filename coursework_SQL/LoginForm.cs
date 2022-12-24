@@ -41,6 +41,9 @@ namespace coursework_SQL
             bool admin = false;
 
             string queryString1 = $"SELECT id_клиента FROM Данные_клиента WHERE login = '{loginUser}' and password = '{loginPassword}'";
+            SqlCommand sqlCommand1 = new SqlCommand(queryString1, dataBase.getConnection());
+
+            dataBase.openConnection();
 
             String pattern = @"admin(\w*)";
 
@@ -54,11 +57,12 @@ namespace coursework_SQL
                 queryString = $"SELECT * FROM Данные_клиента WHERE login = '{loginUser}' and password = '{loginPassword}'";
                 if(!Regex.IsMatch(loginUser, pattern, RegexOptions.IgnoreCase))
                 {
-                    SqlCommand sqlCommand1 = new SqlCommand(queryString1, dataBase.getConnection());
-                    dataBase.openConnection();
-                    adapter.SelectCommand = sqlCommand1;
-                    id = (int)sqlCommand1.ExecuteScalar(); //вывод полученного в запросе значения
-                    dataBase.closeConnection();
+                    if (txtBoxPassword.Text != "" && txtBoxUsername.Text != "" && sqlCommand1.ExecuteScalar() != null)
+                    {
+                        adapter.SelectCommand = sqlCommand1;
+                        id = (int)sqlCommand1.ExecuteScalar(); //вывод полученного в запросе значения
+                        dataBase.closeConnection();
+                    }
                 }
             }
 
@@ -90,15 +94,16 @@ namespace coursework_SQL
             }
             else
             {
-                MessageBox.Show("Вход не был выполнен!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Вход не был выполнен!\nВозможно, вы не заполнили поля или не зарегистрировались", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void linkLabelNoAcc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             SignUpForm signUpForm = new SignUpForm();
-            signUpForm.Show();
             this.Hide();
+            signUpForm.ShowDialog();
+            this.Show();
         }
     }
 }

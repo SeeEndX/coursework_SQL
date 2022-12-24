@@ -35,7 +35,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(903, 183);
+            this.ClientSize = new System.Drawing.Size(705, 139);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FullForm";
             this.Text = "Подробности заказа";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FullForm_FormClosing);

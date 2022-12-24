@@ -119,6 +119,9 @@
             this.Controls.Add(this.txtBoxRegUsername);
             this.Controls.Add(this.regBtn);
             this.ForeColor = System.Drawing.Color.Orange;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "SignUpForm";
             this.Text = "Регистрация";
             this.Load += new System.EventHandler(this.SignUpForm_Load);

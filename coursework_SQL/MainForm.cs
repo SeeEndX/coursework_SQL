@@ -27,6 +27,7 @@ namespace coursework_SQL
         DataBase dataBase = new DataBase();
         DataGridView dataGridView = new DataGridView();
         int id = AuthPage.id;
+        bool isCreated = false;
         public MainForm()
         {
             InitializeComponent();
@@ -42,7 +43,7 @@ namespace coursework_SQL
                     dataGridView1.Columns.Add("Чек.сумма", "Сумма");
                     dataGridView1.Columns.Add("Чек.id_товара", "Номер товара");
                     dataGridView1.Columns.Add("Заказы.дата_время", "Дата заказа");
-                    dataGridView1.Columns.Add("IsNew", String.Empty);
+                    //dataGridView1.Columns.Add("IsNew", String.Empty);
                     break;
                 case 1:
                     dataGridView.Columns.Add("Чек.id_заказа", "Номер заказа");
@@ -50,7 +51,8 @@ namespace coursework_SQL
                     dataGridView.Columns.Add("Чек.Сумма", "Сумма");
                     dataGridView.Columns.Add("Товар.название", "Название");
                     dataGridView.Columns.Add("Товар.описание", "Описание");
-                    dataGridView.Columns.Add("IsNew", String.Empty);
+                    //dataGridView.Columns.Add("IsNew", String.Empty);
+                    isCreated = true;
                     break;
             }
         }
@@ -60,10 +62,10 @@ namespace coursework_SQL
             switch (index)
             {
                 case 0:
-                    dataGridView.Rows.Add(dataRecord.GetInt32(0), dataRecord.GetInt32(1), dataRecord.GetInt32(2),dataRecord.GetDateTime(3), RowState.ModifiedNew);
+                    dataGridView.Rows.Add(dataRecord.GetInt32(0), dataRecord.GetInt32(1), dataRecord.GetInt32(2), dataRecord.GetDateTime(3)); //,RowState.ModifiedNew);
                     break;
                 case 1:
-                    dataGridView.Rows.Add(dataRecord.GetInt32(0), dataRecord.GetInt32(1), dataRecord.GetInt32(2), dataRecord.GetString(3), dataRecord.GetString(4), RowState.ModifiedNew);
+                    dataGridView.Rows.Add(dataRecord.GetInt32(0), dataRecord.GetInt32(1), dataRecord.GetInt32(2), dataRecord.GetString(3), dataRecord.GetString(4));//, RowState.ModifiedNew);
                     break;
             }
 
@@ -105,7 +107,7 @@ namespace coursework_SQL
             formF.Show();
             int id_zak = (int)dataGridView1.CurrentRow.Cells[0].Value;
             string queryString = $"SELECT Чек.id_заказа, Чек.количество_товара, Чек.Сумма, Товары.название, Товары.описание  FROM Чек Join Товары on Чек.id_товара=Товары.id_товара where Чек.id_заказа='{id_zak}'";
-            CreateColumns(1);
+            if (!isCreated) CreateColumns(1);
             RefreshDataGrid(dgr, queryString, 1);
             formF.Controls.Add(dgr);
         }
