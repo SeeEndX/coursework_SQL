@@ -15,7 +15,6 @@ namespace coursework_SQL
     public partial class ProductForm : Form
     {
         DataBase dataBase = new DataBase();
-        DataGridView dataGridView = new DataGridView();
         int id_pr;
         public ProductForm()
         {
@@ -51,8 +50,6 @@ namespace coursework_SQL
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            SqlDataAdapter adapter = new SqlDataAdapter();
-
             string name = txtBoxName.Text;
             string descr = txtBoxDescr.Text;
             int id_cat = chooseCategory(cbId_cat.Text);
@@ -71,8 +68,6 @@ namespace coursework_SQL
             int rowCount = sqlCommand.ExecuteNonQuery();
             Console.WriteLine("Row Count affected = " + rowCount);
             dataBase.closeConnection();
-            
-
         }
     }
 }

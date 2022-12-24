@@ -103,11 +103,19 @@ namespace coursework_SQL
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            int count = 0;
             ProductForm formP = new ProductForm();
             formP.Controls.Add(createLabel("Добавление товара", -1, 16, 9, 400, 50));
             this.Hide();
             formP.ShowDialog();
+            this.Show();
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            DelProdForm formD = new DelProdForm();
+            formD.Controls.Add(createLabel("Удаление", -1, 16, 9, 400, 50));
+            this.Hide();
+            formD.ShowDialog();
             this.Show();
         }
     }

@@ -188,6 +188,12 @@
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DataBase.cs" />
+    <Compile Include="DelProdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DelProdForm.Designer.cs">
+      <DependentUpon>DelProdForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FullForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,6 +233,9 @@
     </Compile>
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DelProdForm.resx">
+      <DependentUpon>DelProdForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FullForm.resx">
       <DependentUpon>FullForm.cs</DependentUpon>

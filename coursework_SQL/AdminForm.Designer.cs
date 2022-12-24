@@ -67,6 +67,7 @@
             this.deleteBtn.TabIndex = 2;
             this.deleteBtn.Text = "Удалить";
             this.deleteBtn.UseVisualStyleBackColor = false;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // searchDate
             // 
