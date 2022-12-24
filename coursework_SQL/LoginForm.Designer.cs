@@ -40,6 +40,7 @@
             // loginBtn
             // 
             this.loginBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.loginBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.loginBtn.Location = new System.Drawing.Point(45, 262);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(267, 56);
@@ -89,7 +90,7 @@
             // 
             this.linkLabelNoAcc.AutoSize = true;
             this.linkLabelNoAcc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.linkLabelNoAcc.LinkColor = System.Drawing.Color.DimGray;
+            this.linkLabelNoAcc.LinkColor = System.Drawing.Color.Snow;
             this.linkLabelNoAcc.Location = new System.Drawing.Point(123, 334);
             this.linkLabelNoAcc.Name = "linkLabelNoAcc";
             this.linkLabelNoAcc.Size = new System.Drawing.Size(151, 18);
@@ -113,6 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(388, 373);
             this.Controls.Add(this.adminCheck);
             this.Controls.Add(this.linkLabelNoAcc);
@@ -122,6 +124,7 @@
             this.Controls.Add(this.txtBoxUsername);
             this.Controls.Add(this.loginBtn);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ForeColor = System.Drawing.Color.Orange;
             this.Name = "AuthPage";
             this.Text = "Авторизация";
             this.Load += new System.EventHandler(this.AuthPage_Load);

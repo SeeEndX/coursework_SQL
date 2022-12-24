@@ -38,7 +38,6 @@ namespace coursework_SQL
             switch (selectedIndex)
             {
                 case 0:
-                    dataGridView1.Columns.Add("Заказы.id_клиента", "Номер клиента");
                     dataGridView1.Columns.Add("Заказы.id_заказа", "Номер заказа");
                     dataGridView1.Columns.Add("Чек.сумма", "Сумма");
                     dataGridView1.Columns.Add("Чек.id_товара", "Номер товара");
@@ -61,7 +60,7 @@ namespace coursework_SQL
             switch (index)
             {
                 case 0:
-                    dataGridView.Rows.Add(dataRecord.GetInt32(0), dataRecord.GetInt32(1), dataRecord.GetInt32(2), dataRecord.GetInt32(3),dataRecord.GetDateTime(4), RowState.ModifiedNew);
+                    dataGridView.Rows.Add(dataRecord.GetInt32(0), dataRecord.GetInt32(1), dataRecord.GetInt32(2),dataRecord.GetDateTime(3), RowState.ModifiedNew);
                     break;
                 case 1:
                     dataGridView.Rows.Add(dataRecord.GetInt32(0), dataRecord.GetInt32(1), dataRecord.GetInt32(2), dataRecord.GetString(3), dataRecord.GetString(4), RowState.ModifiedNew);
@@ -88,7 +87,7 @@ namespace coursework_SQL
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            string queryString = $"SELECT Заказы.id_клиента, Заказы.id_заказа, Чек.сумма, Чек.id_товара, Заказы.дата_время FROM Заказы Join Чек ON Заказы.id_заказа=Чек.id_заказа where id_клиента= {id};";
+            string queryString = $"SELECT Заказы.id_заказа, Чек.сумма, Чек.id_товара, Заказы.дата_время FROM Заказы Join Чек ON Заказы.id_заказа=Чек.id_заказа where id_клиента= {id};";
             CreateColumns(0);
             RefreshDataGrid(dataGridView1, queryString,0);
         }
@@ -96,12 +95,15 @@ namespace coursework_SQL
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             FullForm formF = new FullForm();
+            formF.MaximizeBox = false;
+            formF.MaximizeBox = false;
             DataGridView dgr = new DataGridView();
             dgr = dataGridView;
+            dgr.BackgroundColor = Color.Black;
             dgr.Width = formF.Width;
             dgr.Height = formF.Height;
             formF.Show();
-            int id_zak = (int)dataGridView1.CurrentRow.Cells[1].Value;
+            int id_zak = (int)dataGridView1.CurrentRow.Cells[0].Value;
             string queryString = $"SELECT Чек.id_заказа, Чек.количество_товара, Чек.Сумма, Товары.название, Товары.описание  FROM Чек Join Товары on Чек.id_товара=Товары.id_товара where Чек.id_заказа='{id_zak}'";
             CreateColumns(1);
             RefreshDataGrid(dgr, queryString, 1);

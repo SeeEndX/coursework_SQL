@@ -77,6 +77,7 @@
             // regBtn
             // 
             this.regBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.regBtn.ForeColor = System.Drawing.Color.Black;
             this.regBtn.Location = new System.Drawing.Point(45, 243);
             this.regBtn.Name = "regBtn";
             this.regBtn.Size = new System.Drawing.Size(273, 56);
@@ -108,6 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(388, 373);
             this.Controls.Add(this.txtBoxRegNumber);
             this.Controls.Add(this.label1);
@@ -116,6 +118,7 @@
             this.Controls.Add(this.txtBoxRegPassword);
             this.Controls.Add(this.txtBoxRegUsername);
             this.Controls.Add(this.regBtn);
+            this.ForeColor = System.Drawing.Color.Orange;
             this.Name = "SignUpForm";
             this.Text = "Регистрация";
             this.Load += new System.EventHandler(this.SignUpForm_Load);

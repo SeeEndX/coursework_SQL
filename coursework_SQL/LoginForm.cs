@@ -72,6 +72,8 @@ namespace coursework_SQL
                 if (admin)
                 {
                     AdminForm formAdmin = new AdminForm();
+                    formAdmin.MaximizeBox = false;
+                    formAdmin.MinimizeBox = false;
                     this.Hide();
                     formAdmin.ShowDialog();
                     this.Show();
@@ -79,6 +81,8 @@ namespace coursework_SQL
                 else
                 {
                     MainForm formMain = new MainForm();
+                    formMain.MaximizeBox = false;
+                    formMain.MinimizeBox = false;
                     this.Hide();
                     formMain.ShowDialog();
                     this.Show();

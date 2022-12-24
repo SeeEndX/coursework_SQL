@@ -45,6 +45,8 @@ namespace coursework_SQL
             {
                 MessageBox.Show("Аккаунт успешно создан", "Успех!");
                 AuthPage loginForm = new AuthPage();
+                loginForm.MaximizeBox = false;
+                loginForm.MinimizeBox = false;
                 this.Hide();
                 loginForm.ShowDialog();
             }
@@ -53,31 +55,6 @@ namespace coursework_SQL
                 MessageBox.Show("Аккаунт не был создан!", "Ошибка!");
             }
             dataBase.closeConnection();
-        }
-
-        private Boolean checkUser()
-        {
-            var login = txtBoxRegUsername.Text;
-            var password = txtBoxRegPassword.Text;
-            var number = txtBoxRegNumber.Text;
-
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            DataTable table = new DataTable();
-            string queryString = $"SELECT * FROM Данные_клиента WHERE номер_телефона = '{number}' and login = '{login}' and password = '{password}'";
-            SqlCommand sqlCommand = new SqlCommand(queryString, dataBase.getConnection());
-
-            adapter.SelectCommand = sqlCommand;
-            adapter.Fill(table);
-
-            if (table.Rows.Count > 0)
-            {
-                MessageBox.Show("Пользователь уже существует!");
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
     }
 }
