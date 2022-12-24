@@ -36,17 +36,18 @@ namespace coursework_SQL
             string loginUser = txtBoxUsername.Text;
             string loginPassword = txtBoxPassword.Text;
             string queryString;
-            bool admin = false;
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
+            bool admin = false;
 
             string queryString1 = $"SELECT id_клиента FROM Данные_клиента WHERE login = '{loginUser}' and password = '{loginPassword}'";
 
-            String pattern = @"\b(admin)\b";
+            String pattern = @"admin(\w*)";
 
             if (adminCheck.Checked)
             {
                 queryString = $"Select * FROM admin WHERE login = '{loginUser}' and password = '{loginPassword}'";
+                admin = true;
             }
             else
             {
@@ -68,10 +69,20 @@ namespace coursework_SQL
             if (table.Rows.Count == 1)
             {
                 MessageBox.Show("Вход выполнен успешно!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                MainForm formMain = new MainForm();
-                this.Hide();
-                formMain.ShowDialog();
-                this.Show();
+                if (admin)
+                {
+                    AdminForm formAdmin = new AdminForm();
+                    this.Hide();
+                    formAdmin.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    MainForm formMain = new MainForm();
+                    this.Hide();
+                    formMain.ShowDialog();
+                    this.Show();
+                }
             }
             else
             {
