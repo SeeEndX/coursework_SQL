@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace coursework_SQL
 {
-    public partial class Form1 : Form
+    public partial class FullForm : Form
     {
-        public Form1()
+        public FullForm()
         {
             InitializeComponent();
+        }
+
+        private void FullForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
         }
     }
 }
