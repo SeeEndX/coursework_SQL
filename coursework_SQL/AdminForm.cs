@@ -110,6 +110,15 @@ namespace coursework_SQL
             this.Show();
         }
 
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+            EditProdForm formE = new EditProdForm();
+            formE.Controls.Add(createLabel("Редактирование",-1, 16, 9, 400, 50));
+            this.Hide();
+            formE.ShowDialog();
+            this.Show();
+        }
+        
         private void deleteBtn_Click(object sender, EventArgs e)
         {
             DelProdForm formD = new DelProdForm();

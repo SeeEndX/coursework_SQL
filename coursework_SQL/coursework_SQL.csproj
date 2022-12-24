@@ -194,6 +194,12 @@
     <Compile Include="DelProdForm.Designer.cs">
       <DependentUpon>DelProdForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditProdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditProdForm.Designer.cs">
+      <DependentUpon>EditProdForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FullForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DelProdForm.resx">
       <DependentUpon>DelProdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditProdForm.resx">
+      <DependentUpon>EditProdForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FullForm.resx">
       <DependentUpon>FullForm.cs</DependentUpon>

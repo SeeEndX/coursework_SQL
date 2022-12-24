@@ -102,6 +102,7 @@
             this.editBtn.TabIndex = 6;
             this.editBtn.Text = "Изменить";
             this.editBtn.UseVisualStyleBackColor = true;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // addBtn
             // 

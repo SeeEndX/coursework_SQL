@@ -138,6 +138,7 @@
             // 
             // addBtn
             // 
+            this.addBtn.BackColor = System.Drawing.Color.LightGreen;
             this.addBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addBtn.ForeColor = System.Drawing.Color.Black;
             this.addBtn.Location = new System.Drawing.Point(159, 373);
@@ -145,7 +146,7 @@
             this.addBtn.Size = new System.Drawing.Size(174, 49);
             this.addBtn.TabIndex = 16;
             this.addBtn.Text = "Добавить";
-            this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.UseVisualStyleBackColor = false;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // ProductForm
