@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace coursework_SQL
 {
@@ -56,10 +57,16 @@ namespace coursework_SQL
             queryString = $"insert into Товары(id_товара, id_категории, название, описание, цена) values ({id_pr},{id_cat},'{name}','{descr}',{price});";
 
             sqlCommand = new SqlCommand(queryString, dataBase.getConnection());
-            Console.WriteLine(id_pr+" "+id_cat + " " + name + " " + descr + " " + price);
-            MessageBox.Show("Товар "+name+" успешно добавлен!");
-            int rowCount = sqlCommand.ExecuteNonQuery();
-            Console.WriteLine("Row Count affected = " + rowCount);
+            if (name != "" && descr != "")
+            {
+                MessageBox.Show("Товар " + name + " успешно добавлен!");
+                int rowCount = sqlCommand.ExecuteNonQuery();
+                Console.WriteLine("Row Count affected = " + rowCount);
+            }
+            else
+            {
+                MessageBox.Show("Заполните все поля!", "Ошибка", MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
             dataBase.closeConnection();
         }
     }

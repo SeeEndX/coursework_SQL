@@ -26,9 +26,16 @@ namespace coursework_SQL
             {
                 dataBase.openConnection();
                 sqlCommand = new SqlCommand(queryString, dataBase.getConnection());
-                MessageBox.Show("Товар под номером " + id_del + " успешно удален!","Успех",MessageBoxButtons.OK);
                 int rowCount = sqlCommand.ExecuteNonQuery();
                 Console.WriteLine("Row Count affected = " + rowCount);
+                if (rowCount > 0)
+                {
+                    MessageBox.Show("Товар под номером " + id_del + " успешно удален!", "Успех", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    MessageBox.Show("Товар под номером " + id_del + " не был найден", "Внимание", MessageBoxButtons.OK);
+                }
                 dataBase.closeConnection();
             }
         }

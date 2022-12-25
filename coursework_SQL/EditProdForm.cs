@@ -108,14 +108,21 @@ namespace coursework_SQL
         {
             int id_cat = chooseCategoryFromName(cbId_cat.Text);
             queryString = $"UPDATE Товары SET id_категории = {id_cat}, название = '{txtBoxName.Text}', описание = '{txtBoxDescr.Text}', цена = {(int)numUpDownPrice.Value} WHERE id_товара = {loadedID}";
-            SqlCommand sqlCommand = new SqlCommand(queryString,dataBase.getConnection());
-            DialogResult dialogResult = MessageBox.Show("Вы действительно хотите изменить товар под номером " + loadedID + "?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialogResult == DialogResult.Yes && isLoaded)
+            SqlCommand sqlCommand = new SqlCommand(queryString, dataBase.getConnection());
+            if (txtBoxName.Text != "" && txtBoxDescr.Text != "")
             {
-                dataBase.openConnection();
-                int rowCount = sqlCommand.ExecuteNonQuery();
-                Console.WriteLine("Row Count affected = " + rowCount);
-                dataBase.closeConnection();
+                DialogResult dialogResult = MessageBox.Show("Вы действительно хотите изменить товар под номером " + loadedID + "?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes && isLoaded)
+                {
+                    dataBase.openConnection();
+                    int rowCount = sqlCommand.ExecuteNonQuery();
+                    Console.WriteLine("Row Count affected = " + rowCount);
+                    dataBase.closeConnection();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Заполните все поля!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
