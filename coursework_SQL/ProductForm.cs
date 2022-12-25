@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Text.RegularExpressions;
 
 namespace coursework_SQL
 {
@@ -16,6 +8,7 @@ namespace coursework_SQL
     {
         DataBase dataBase = new DataBase();
         int id_pr;
+        string queryString;
         public ProductForm()
         {
             InitializeComponent();
@@ -60,7 +53,7 @@ namespace coursework_SQL
             dataBase.openConnection();
             id_pr = (int)sqlCommand.ExecuteScalar()+1;
 
-            string queryString = $"insert into Товары(id_товара, id_категории, название, описание, цена) values ({id_pr},{id_cat},'{name}','{descr}',{price});";
+            queryString = $"insert into Товары(id_товара, id_категории, название, описание, цена) values ({id_pr},{id_cat},'{name}','{descr}',{price});";
 
             sqlCommand = new SqlCommand(queryString, dataBase.getConnection());
             Console.WriteLine(id_pr+" "+id_cat + " " + name + " " + descr + " " + price);

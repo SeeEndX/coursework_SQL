@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
@@ -17,6 +10,7 @@ namespace coursework_SQL
         bool isLoaded = false;
         int loadedID = 0;
         int loadedCAT = 0;
+        string queryString;
         public EditProdForm()
         {
             InitializeComponent();
@@ -83,7 +77,7 @@ namespace coursework_SQL
             string name="";
             string description="";
             int price=99;
-            string queryString = $"SELECT id_категории, название, описание, цена FROM Товары WHERE Товары.id_товара = {id_pr}";
+            queryString = $"SELECT id_категории, название, описание, цена FROM Товары WHERE Товары.id_товара = {id_pr}";
             SqlCommand sqlCommand = new SqlCommand(queryString, dataBase.getConnection());
 
             dataBase.openConnection();
@@ -113,7 +107,7 @@ namespace coursework_SQL
         private void addBtn_Click(object sender, EventArgs e)
         {
             int id_cat = chooseCategoryFromName(cbId_cat.Text);
-            string queryString = $"UPDATE Товары SET id_категории = {id_cat}, название = '{txtBoxName.Text}', описание = '{txtBoxDescr.Text}', цена = {(int)numUpDownPrice.Value} WHERE id_товара = {loadedID}";
+            queryString = $"UPDATE Товары SET id_категории = {id_cat}, название = '{txtBoxName.Text}', описание = '{txtBoxDescr.Text}', цена = {(int)numUpDownPrice.Value} WHERE id_товара = {loadedID}";
             SqlCommand sqlCommand = new SqlCommand(queryString,dataBase.getConnection());
             DialogResult dialogResult = MessageBox.Show("Вы действительно хотите изменить товар под номером " + loadedID + "?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes && isLoaded)

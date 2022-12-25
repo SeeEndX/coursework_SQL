@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
@@ -18,6 +12,7 @@ namespace coursework_SQL
         public static DataGridView dataGridView = new DataGridView();
         int id = AuthPage.id;
         bool isCreated = false;
+        string queryString;
         public MainForm()
         {
             InitializeComponent();
@@ -33,7 +28,6 @@ namespace coursework_SQL
                     dataGridView1.Columns.Add("Чек.сумма", "Сумма");
                     dataGridView1.Columns.Add("Чек.id_товара", "Номер товара");
                     dataGridView1.Columns.Add("Заказы.дата_время", "Дата заказа");
-                    //dataGridView1.Columns.Add("IsNew", String.Empty);
                     break;
                 case 1:
                     dataGridView.Columns.Add("Чек.id_заказа", "Номер заказа");
@@ -41,7 +35,6 @@ namespace coursework_SQL
                     dataGridView.Columns.Add("Чек.Сумма", "Сумма");
                     dataGridView.Columns.Add("Товар.название", "Название");
                     dataGridView.Columns.Add("Товар.описание", "Описание");
-                    //dataGridView.Columns.Add("IsNew", String.Empty);
                     isCreated = true;
                     break;
             }
@@ -81,7 +74,7 @@ namespace coursework_SQL
         {
             if (!AuthPage.admin)
             {
-                string queryString = $"SELECT Заказы.id_заказа, Чек.сумма, Чек.id_товара, Заказы.дата_время FROM Заказы Join Чек ON Заказы.id_заказа=Чек.id_заказа where id_клиента= {id};";
+                queryString = $"SELECT Заказы.id_заказа, Чек.сумма, Чек.id_товара, Заказы.дата_время FROM Заказы Join Чек ON Заказы.id_заказа=Чек.id_заказа where id_клиента= {id};";
                 CreateColumns(0);
                 RefreshDataGrid(dataGridView1, queryString, 0);
             }
@@ -103,7 +96,7 @@ namespace coursework_SQL
             dgr.Height = formF.Height;
             formF.Show();
             int id_zak = (int)dataGridView1.CurrentRow.Cells[0].Value;
-            string queryString = $"SELECT Чек.id_заказа, Чек.количество_товара, Чек.Сумма, Товары.название, Товары.описание  FROM Чек Join Товары on Чек.id_товара=Товары.id_товара where Чек.id_заказа='{id_zak}'";
+            queryString = $"SELECT Чек.id_заказа, Чек.количество_товара, Чек.Сумма, Товары.название, Товары.описание  FROM Чек Join Товары on Чек.id_товара=Товары.id_товара where Чек.id_заказа='{id_zak}'";
             if (!isCreated) CreateColumns(1);
             RefreshDataGrid(dgr, queryString, 1);
             formF.Controls.Add(dgr);

@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Threading;
 
 namespace coursework_SQL
 {
@@ -19,6 +13,7 @@ namespace coursework_SQL
         bool isCreated = false;
         int id_cl = 0;
         string dateTime = "";
+        string queryString;
 
         public AdminForm()
         {
@@ -73,7 +68,6 @@ namespace coursework_SQL
             int count;
             id_cl = (int)numUpDownId.Value;
             dateTime = searchDate.Text;
-            string queryString = "";
             //searchDate.CustomFormat = "yyyymmdd"; //20220122
 
             if (rbId.Checked)

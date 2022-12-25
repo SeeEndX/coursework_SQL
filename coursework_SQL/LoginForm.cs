@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Text.RegularExpressions;
 
 namespace coursework_SQL
@@ -19,6 +12,7 @@ namespace coursework_SQL
 
         DataBase dataBase = new DataBase();
         public static int id;
+        string queryString;
 
         public AuthPage()
         {
@@ -36,7 +30,6 @@ namespace coursework_SQL
         {
             string loginUser = txtBoxUsername.Text;
             string loginPassword = txtBoxPassword.Text;
-            string queryString;
             SqlDataAdapter adapter = new SqlDataAdapter();
             DataTable table = new DataTable();
 
