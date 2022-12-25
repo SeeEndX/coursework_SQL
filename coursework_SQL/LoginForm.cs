@@ -8,11 +8,10 @@ namespace coursework_SQL
 {
     public partial class AuthPage : Form
     {
-        public static bool admin = false;
-
         DataBase dataBase = new DataBase();
         public static int id;
         string queryString;
+        public static bool admin = false; 
 
         public AuthPage()
         {
@@ -35,15 +34,20 @@ namespace coursework_SQL
 
             string queryString1 = $"SELECT id_клиента FROM Данные_клиента WHERE login = '{loginUser}' and password = '{loginPassword}'";
             SqlCommand sqlCommand1 = new SqlCommand(queryString1, dataBase.getConnection());
+            SqlCommand sqlCommand;
 
             dataBase.openConnection();
 
-            String pattern = @"admin(\w*)";
+            string pattern = @"admin(\w*)";
 
             if (adminCheck.Checked)
             {
                 queryString = $"Select * FROM admin WHERE login = '{loginUser}' and password = '{loginPassword}'";
-                admin = true;
+                sqlCommand = new SqlCommand(queryString, dataBase.getConnection());
+                if (sqlCommand.ExecuteScalar() != null)
+                {
+                    admin = true;
+                }
             }
             else
             {
@@ -59,7 +63,7 @@ namespace coursework_SQL
                 }
             }
 
-            SqlCommand sqlCommand = new SqlCommand(queryString, dataBase.getConnection());
+            sqlCommand = new SqlCommand(queryString, dataBase.getConnection());
             adapter.SelectCommand = sqlCommand;
             adapter.Fill(table);
 
@@ -74,6 +78,7 @@ namespace coursework_SQL
                     this.Hide();
                     formAdmin.ShowDialog();
                     this.Show();
+                    admin= false;
                 }
                 else
                 {
@@ -85,7 +90,7 @@ namespace coursework_SQL
                     this.Show();
                 }
             }
-            else if (admin)
+            else if (!admin && adminCheck.Checked)
             {
                 MessageBox.Show("Вход не был выполнен!\nДанные администратора неверны", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
