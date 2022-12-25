@@ -9,7 +9,7 @@ namespace coursework_SQL
     public partial class MainForm : Form
     {
         DataBase dataBase = new DataBase();
-        public static DataGridView dataGridView = new DataGridView();
+        public DataGridView dataGridView = new DataGridView();
         int id = AuthPage.id;
         bool isCreated = false;
         string queryString;
@@ -94,12 +94,14 @@ namespace coursework_SQL
             dgr.BackgroundColor = Color.Black;
             dgr.Width = formF.Width;
             dgr.Height = formF.Height;
-            formF.Show();
             int id_zak = (int)dataGridView1.CurrentRow.Cells[0].Value;
             queryString = $"SELECT Чек.id_заказа, Чек.количество_товара, Чек.Сумма, Товары.название, Товары.описание  FROM Чек Join Товары on Чек.id_товара=Товары.id_товара where Чек.id_заказа='{id_zak}'";
             if (!isCreated) CreateColumns(1);
             RefreshDataGrid(dgr, queryString, 1);
             formF.Controls.Add(dgr);
+            this.Hide();
+            formF.ShowDialog();
+            this.Show();
         }
     }
 }
