@@ -45,7 +45,6 @@ namespace coursework_SQL
             SqlCommand sqlCommand = new SqlCommand(queryString, dataBase.getConnection());
 
             dataBase.openConnection();
-
             SqlDataReader dataReader = sqlCommand.ExecuteReader();
 
             while (dataReader.Read())
