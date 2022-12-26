@@ -90,6 +90,8 @@
             this.Controls.Add(this.numUpDownDel);
             this.Controls.Add(this.delBtn);
             this.ForeColor = System.Drawing.Color.Orange;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "DelProdForm";
             this.Text = "Удаление";
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownDel)).EndInit();

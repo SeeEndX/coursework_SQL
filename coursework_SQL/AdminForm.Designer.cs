@@ -41,6 +41,9 @@
             this.rbDate = new System.Windows.Forms.RadioButton();
             this.rbId = new System.Windows.Forms.RadioButton();
             this.numUpDownId = new System.Windows.Forms.NumericUpDown();
+            this.prodLookBtn = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.makeOrderBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownId)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +64,7 @@
             this.deleteBtn.BackColor = System.Drawing.Color.IndianRed;
             this.deleteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.deleteBtn.ForeColor = System.Drawing.Color.Black;
-            this.deleteBtn.Location = new System.Drawing.Point(447, 202);
+            this.deleteBtn.Location = new System.Drawing.Point(448, 326);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(177, 47);
             this.deleteBtn.TabIndex = 2;
@@ -96,7 +99,7 @@
             // 
             this.editBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.editBtn.ForeColor = System.Drawing.Color.Black;
-            this.editBtn.Location = new System.Drawing.Point(447, 137);
+            this.editBtn.Location = new System.Drawing.Point(448, 242);
             this.editBtn.Name = "editBtn";
             this.editBtn.Size = new System.Drawing.Size(177, 47);
             this.editBtn.TabIndex = 6;
@@ -109,7 +112,7 @@
             this.addBtn.BackColor = System.Drawing.Color.LightGreen;
             this.addBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addBtn.ForeColor = System.Drawing.Color.Black;
-            this.addBtn.Location = new System.Drawing.Point(447, 69);
+            this.addBtn.Location = new System.Drawing.Point(448, 155);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(177, 47);
             this.addBtn.TabIndex = 7;
@@ -154,7 +157,7 @@
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label5.Location = new System.Drawing.Point(382, -6);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(10, 300);
+            this.label5.Size = new System.Drawing.Size(10, 458);
             this.label5.TabIndex = 11;
             // 
             // rbDate
@@ -204,12 +207,50 @@
             0,
             0});
             // 
+            // prodLookBtn
+            // 
+            this.prodLookBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.prodLookBtn.ForeColor = System.Drawing.Color.Black;
+            this.prodLookBtn.Location = new System.Drawing.Point(448, 71);
+            this.prodLookBtn.Name = "prodLookBtn";
+            this.prodLookBtn.Size = new System.Drawing.Size(177, 47);
+            this.prodLookBtn.TabIndex = 18;
+            this.prodLookBtn.Text = "Список";
+            this.prodLookBtn.UseVisualStyleBackColor = true;
+            this.prodLookBtn.Click += new System.EventHandler(this.prodLookBtn_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Black;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(12, 281);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(352, 38);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Оформление заказа";
+            // 
+            // makeOrderBtn
+            // 
+            this.makeOrderBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.makeOrderBtn.ForeColor = System.Drawing.Color.Black;
+            this.makeOrderBtn.Location = new System.Drawing.Point(120, 336);
+            this.makeOrderBtn.Name = "makeOrderBtn";
+            this.makeOrderBtn.Size = new System.Drawing.Size(244, 47);
+            this.makeOrderBtn.TabIndex = 21;
+            this.makeOrderBtn.Text = "Оформить заказ";
+            this.makeOrderBtn.UseVisualStyleBackColor = true;
+            this.makeOrderBtn.Click += new System.EventHandler(this.makeOrderBtn_Click);
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(672, 283);
+            this.ClientSize = new System.Drawing.Size(662, 399);
+            this.Controls.Add(this.makeOrderBtn);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.prodLookBtn);
             this.Controls.Add(this.numUpDownId);
             this.Controls.Add(this.rbId);
             this.Controls.Add(this.rbDate);
@@ -249,5 +290,8 @@
         private System.Windows.Forms.RadioButton rbDate;
         private System.Windows.Forms.RadioButton rbId;
         private System.Windows.Forms.NumericUpDown numUpDownId;
+        private System.Windows.Forms.Button prodLookBtn;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button makeOrderBtn;
     }
 }

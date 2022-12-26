@@ -59,9 +59,14 @@ namespace coursework_SQL
             sqlCommand = new SqlCommand(queryString, dataBase.getConnection());
             if (name != "" && descr != "")
             {
-                MessageBox.Show("Товар " + name + " успешно добавлен!");
+                MessageBox.Show("Товар под номером " + id_pr + " успешно добавлен!");
                 int rowCount = sqlCommand.ExecuteNonQuery();
                 Console.WriteLine("Row Count affected = " + rowCount);
+                AllProductsForm allProductsForm = new AllProductsForm();
+                this.Hide();
+                allProductsForm.ShowDialog();
+                //allProductsForm.Controls.Add(allProductsForm.getDataGridView());
+                this.Show();
             }
             else
             {

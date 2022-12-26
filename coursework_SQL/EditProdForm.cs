@@ -93,10 +93,10 @@ namespace coursework_SQL
 
             loadedID = id_pr;
             loadedCAT = id_cat;
-            this.cbId_cat.Text = chooseCategoryFromId(id_cat);
-            this.txtBoxName.Text = name;
-            this.txtBoxDescr.Text = description;
-            this.numUpDownPrice.Value = price;
+            cbId_cat.Text = chooseCategoryFromId(id_cat);
+            txtBoxName.Text = name;
+            txtBoxDescr.Text = description;
+            numUpDownPrice.Value = price;
 
             Console.WriteLine(loadedID + " " + id_cat + " " + name + " " + description + " " + price);
             dataReader.Close();

@@ -166,6 +166,8 @@
             this.Controls.Add(this.label2);
             this.ForeColor = System.Drawing.Color.Orange;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ProductForm";
             this.Text = "Товары";
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownPrice)).EndInit();

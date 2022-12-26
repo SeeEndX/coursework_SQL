@@ -121,5 +121,21 @@ namespace coursework_SQL
             formD.ShowDialog();
             this.Show();
         }
+
+        private void prodLookBtn_Click(object sender, EventArgs e)
+        {
+            AllProductsForm allProductsForm = new AllProductsForm();
+            this.Hide();
+            allProductsForm.ShowDialog();
+            this.Show();
+        }
+
+        private void makeOrderBtn_Click(object sender, EventArgs e)
+        {
+            MakeOrderForm makeOrderForm = new MakeOrderForm();
+            this.Hide();
+            makeOrderForm.ShowDialog();
+            this.Show();
+        }
     }
 }

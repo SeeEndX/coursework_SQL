@@ -45,10 +45,10 @@ namespace coursework_SQL
             switch (index)
             {
                 case 0:
-                    dataGridView.Rows.Add(dataRecord.GetInt32(0), dataRecord.GetInt32(1), dataRecord.GetInt32(2), dataRecord.GetDateTime(3)); //,RowState.ModifiedNew);
+                    dataGridView.Rows.Add(dataRecord.GetInt32(0), dataRecord.GetInt32(1), dataRecord.GetInt32(2), dataRecord.GetDateTime(3));
                     break;
                 case 1:
-                    dataGridView.Rows.Add(dataRecord.GetInt32(0), dataRecord.GetInt32(1), dataRecord.GetInt32(2), dataRecord.GetString(3), dataRecord.GetString(4));//, RowState.ModifiedNew);
+                    dataGridView.Rows.Add(dataRecord.GetInt32(0), dataRecord.GetInt32(1), dataRecord.GetInt32(2), dataRecord.GetString(3), dataRecord.GetString(4));
                     break;
             }
 
@@ -74,6 +74,7 @@ namespace coursework_SQL
         {
             if (!AuthPage.admin)
             {
+                //queryString = $"select id_заказа, id_магазина, id_клиента, дата_время from Заказы where id_клиента = {id}";
                 queryString = $"SELECT Заказы.id_заказа, Чек.сумма, Чек.id_товара, Заказы.дата_время FROM Заказы Join Чек ON Заказы.id_заказа=Чек.id_заказа where id_клиента= {id};";
                 CreateColumns(0);
                 RefreshDataGrid(dataGridView1, queryString, 0);
@@ -89,7 +90,7 @@ namespace coursework_SQL
             FullForm formF = new FullForm();
             formF.MaximizeBox = false;
             formF.MaximizeBox = false;
-            DataGridView dgr = new DataGridView();
+            DataGridView dgr;
             dgr = dataGridView;
             dgr.BackgroundColor = Color.Black;
             dgr.Width = formF.Width;

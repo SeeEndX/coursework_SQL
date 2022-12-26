@@ -219,6 +219,8 @@
             this.ForeColor = System.Drawing.Color.Orange;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(6);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "EditProdForm";
             this.Text = "Редактирование";
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownPrice)).EndInit();
