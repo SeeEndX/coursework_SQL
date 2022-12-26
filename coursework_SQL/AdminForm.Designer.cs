@@ -215,7 +215,7 @@
             this.prodLookBtn.Name = "prodLookBtn";
             this.prodLookBtn.Size = new System.Drawing.Size(177, 47);
             this.prodLookBtn.TabIndex = 18;
-            this.prodLookBtn.Text = "Список";
+            this.prodLookBtn.Text = "Все товары";
             this.prodLookBtn.UseVisualStyleBackColor = true;
             this.prodLookBtn.Click += new System.EventHandler(this.prodLookBtn_Click);
             // 

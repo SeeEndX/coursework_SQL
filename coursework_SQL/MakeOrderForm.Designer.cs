@@ -249,6 +249,9 @@
             this.Controls.Add(this.idCl);
             this.Controls.Add(this.addBtn);
             this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MakeOrderForm";
             this.Text = "Оформление заказа";
             this.Load += new System.EventHandler(this.MakeOrderForm_Load);

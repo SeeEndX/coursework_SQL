@@ -84,35 +84,10 @@ namespace coursework_SQL
             sqlCommand = new SqlCommand(queryString, dataBase.getConnection());
             rowCount = sqlCommand.ExecuteNonQuery();
             Console.WriteLine("Чек:\nRow Count affected = " + rowCount);
-
-            /* set @order_ammount = (SELECT COUNT(id_заказа) FROM Заказы);
-
-            while (@n < 3000000)
-                begin
-                    set @id_order = (FLOOR(RAND() * (@order_ammount - 1 + 1) + 1));
-            set @prod_ammount = FLOOR(rand() * (3 - 1 + 1) + 1);
-            set @id_product = (FLOOR(rand() * (36 - 1 + 1) + 1));
-            set @n = @n + 1;
-            set @sum = (select цена from Товары where id_товара = @id_product) *@prod_ammount;
-            insert into Чек(id_заказа, id_товара, количество_товара, сумма) values
-            (@id_order, @id_product, @prod_ammount, @sum);
-            set @sum = 0;
-            end */
-
             queryString = $"select id_заказа, id_магазина, id_клиента, дата_время from Заказы where id_заказа = {id_ord}";
             if (!isCreated) CreateColumns();
             RefreshDataGrid(dgwNewOrder, queryString);
             dataBase.closeConnection();
-            //searchDate.CustomFormat = "yyyymmdd"; //20220122
-            /*
-            MainForm formM = new MainForm();
-            DataGridView dgr;
-            dgr = dataGridView;
-            dgr.BackgroundColor = Color.Black;
-            dgr.Location = new Point(23, 59);
-            dgr.Width = formM.Width;
-            dgr.Height = formM.Height;*/
-
         }
 
         private void MakeOrderForm_Load(object sender, EventArgs e)
